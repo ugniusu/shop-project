@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "simp6.jpg5.su",
+        hostname: "static.wixstatic.com",
       },
     ],
   },
