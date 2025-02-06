@@ -10,14 +10,14 @@ const ProductList = () => {
       >
         <div className="relative w-full h-80">
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_edabc407bc4bf9f433e0e8d906986ea5072737d3caaf1fa9.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
             className="absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity easy duration-500"
           />
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_881f25a7624a1fae3ff356b7125e01e35c877a1e08531737.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
@@ -39,14 +39,14 @@ const ProductList = () => {
       >
         <div className="relative w-full h-80">
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_edabc407bc4bf9f433e0e8d906986ea5072737d3caaf1fa9.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
             className="absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity easy duration-500"
           />
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_881f25a7624a1fae3ff356b7125e01e35c877a1e08531737.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
@@ -68,14 +68,14 @@ const ProductList = () => {
       >
         <div className="relative w-full h-80">
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_edabc407bc4bf9f433e0e8d906986ea5072737d3caaf1fa9.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
             className="absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity easy duration-500"
           />
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_881f25a7624a1fae3ff356b7125e01e35c877a1e08531737.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
@@ -97,14 +97,14 @@ const ProductList = () => {
       >
         <div className="relative w-full h-80">
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_edabc407bc4bf9f433e0e8d906986ea5072737d3caaf1fa9.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
             className="absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity easy duration-500"
           />
           <Image
-            src="https://simp6.jpg5.su/images3/3840x5376_881f25a7624a1fae3ff356b7125e01e35c877a1e08531737.jpg"
+            src="https://images.pexels.com/photos/28055745/pexels-photo-28055745/free-photo-of-a-man-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Product item"
             fill
             sizes="25vw"
