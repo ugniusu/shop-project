@@ -3,6 +3,7 @@ import { products } from "@wix/stores";
 import Image from "next/image";
 import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
+import Pagination from "./Pagination";
 
 const PRODUCT_PER_PAGE = 8;
 
@@ -16,7 +17,8 @@ const ProductList = async ({
   searchParams?: any;
 }) => {
   const wixClient = await wixClientServer();
-  const productQuery = await wixClient.products
+
+  const productQuery = wixClient.products
     .queryProducts()
     .startsWith("name", searchParams?.name || "")
     .eq("collectionIds", categoryId)
@@ -26,7 +28,12 @@ const ProductList = async ({
     )
     .gt("priceData.price", searchParams?.min || 0)
     .lt("priceData.price", searchParams?.max || 999999)
-    .limit(limit || PRODUCT_PER_PAGE);
+    .limit(limit || PRODUCT_PER_PAGE)
+    .skip(
+      searchParams?.page
+        ? parseInt(searchParams.page) * (limit || PRODUCT_PER_PAGE)
+        : 0
+    );
   // .find();
 
   if (searchParams?.sort) {
@@ -35,7 +42,7 @@ const ProductList = async ({
     if (sortType === "asc") {
       productQuery.ascending(sortBy);
     }
-    if (sortType === "descsc") {
+    if (sortType === "desc") {
       productQuery.descending(sortBy);
     }
   }
@@ -53,7 +60,7 @@ const ProductList = async ({
           <div className="relative w-full h-80">
             <Image
               src={product.media?.mainMedia?.image?.url || "/product.png"}
-              alt="Product image"
+              alt=""
               fill
               sizes="25vw"
               className="absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity easy duration-500"
@@ -61,7 +68,7 @@ const ProductList = async ({
             {product.media?.items && (
               <Image
                 src={product.media?.items[1]?.image?.url || "/product.png"}
-                alt="Product image"
+                alt=""
                 fill
                 sizes="25vw"
                 className="absolute object-cover rounded-md"
@@ -84,11 +91,18 @@ const ProductList = async ({
               }}
             ></div>
           )}
-          <button className="rounded-2xl ring-1 ring-primary text-primary w-max py-2 px-4 text-xs hover:bg-primary hover:text-white">
+          <button className="rounded-2xl ring-1 ring-lama text-lama w-max py-2 px-4 text-xs hover:bg-lama hover:text-white">
             Add to Cart
           </button>
         </Link>
       ))}
+      {searchParams?.cat || searchParams?.name ? (
+        <Pagination
+          currentPage={res.currentPage || 0}
+          hasPrev={res.hasPrev()}
+          hasNext={res.hasNext()}
+        />
+      ) : null}
     </div>
   );
 };
