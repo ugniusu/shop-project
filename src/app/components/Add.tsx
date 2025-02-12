@@ -28,7 +28,7 @@ const Add = ({
 
   const wixClient = useWixClient();
 
-  const { addItem } = useCartStore();
+  const { addItem, isLoading } = useCartStore();
 
   return (
     <div className="flex flex-col gap-4">
@@ -61,7 +61,8 @@ const Add = ({
         </div>
         <button
           onClick={() => addItem(wixClient, productId, variantId, quantity)}
-          className="w-36 text-sm rounded-3xl ring-1 ring-primary text-primary py-2 px-4 hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none"
+          disabled={isLoading}
+          className="w-36 text-sm rounded-3xl ring-1 ring-primary text-primary py-2 px-4 hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none disabled:ring-0"
         >
           Add to Cart
         </button>
