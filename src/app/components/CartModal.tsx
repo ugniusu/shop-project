@@ -1,25 +1,20 @@
 "use client";
 
-import { useWixClient } from "@/hooks/useWixClient";
+import { useCartStore } from "@/hooks/useCartStore";
 import Image from "next/image";
-import { useEffect } from "react";
+import { media as wixMedia } from "@wix/sdk";
 
 const CartModal = () => {
-  const cartItems = true;
-  const wixClient = useWixClient();
+  // TEMP
+  // const cartItems = true;
 
-  useEffect(() => {
-    const getCart = async () => {
-      const response = await wixClient.currentCart.getCurrentCart();
-
-      console.log(response);
-    };
-    getCart();
-  }, [wixClient]);
+  const { cart, isLoading } = useCartStore();
 
   return (
     <div className="w-max absolute p-4 rounded-md shadow-lg bg-white top-1/2 right-0 flex flex-col gap-6 z-20">
-      {!cartItems ? (
+      {isLoading ? (
+        "Loading"
+      ) : !cart.lineItems ? (
         <div className="">Cart is Empty</div>
       ) : (
         // LIST
@@ -27,34 +22,49 @@ const CartModal = () => {
           <h2 className="text-lg">Shopping Car</h2>
           <div className="flex flex-col gap-8">
             {/* ITEM */}
-            <div className="flex gap-4">
-              <Image
-                src="https://images.pexels.com/photos/14843496/pexels-photo-14843496.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt=""
-                width={72}
-                height={96}
-                className="object-cover rounded-md"
-              />
-              <div className="flex flex-col justify-between w-full">
-                {/* TOP */}
-                <div className="">
-                  {/* TITLE */}
-                  <div className="flex items-center justify-between gap-8">
-                    <h3 className="font-semibold">Product Name</h3>
-                    <div className="p-1 bg-gray-50 rounded-sm">$47</div>
+            {cart.lineItems.map((item) => (
+              <div className="flex gap-4" key={item._id}>
+                {item.image && (
+                  <Image
+                    src={wixMedia.getScaledToFillImageUrl(
+                      item.image,
+                      72,
+                      96,
+                      {}
+                    )}
+                    alt=""
+                    width={72}
+                    height={96}
+                    className="object-cover rounded-md"
+                  />
+                )}
+                <div className="flex flex-col justify-between w-full">
+                  {/* TOP */}
+                  <div className="">
+                    {/* TITLE */}
+                    <div className="flex items-center justify-between gap-8">
+                      <h3 className="font-semibold">
+                        {item.productName?.original}
+                      </h3>
+                      <div className="p-1 bg-gray-50 rounded-sm">
+                        ${item.price?.amount}
+                      </div>
+                    </div>
+
+                    {/* DESC */}
+                    <div className="text-sm text-gray-500">
+                      {item.availability?.status}
+                    </div>
                   </div>
 
-                  {/* DESC */}
-                  <div className="text-sm text-gray-500">available</div>
-                </div>
-
-                {/* BOTTOM */}
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Qty. 2</span>
-                  <span className="text-blue-500">Remove</span>
+                  {/* BOTTOM */}
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Qty. {item.quantity}</span>
+                    <span className="text-blue-500">Remove</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
           {/* BOTTOM */}
           <div>
