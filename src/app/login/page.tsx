@@ -56,12 +56,6 @@ const LoginPage = () => {
     setIsLoading(true);
     setError("");
 
-    console.log("Registering user:", {
-      email,
-      password,
-      profile: { nickname: username },
-    });
-
     try {
       let response;
 
@@ -72,14 +66,12 @@ const LoginPage = () => {
             password,
           });
           break;
-
         case MODE.REGISTER:
           response = await wixClient.auth.register({
             email,
             password,
             profile: { nickname: username },
           });
-
           break;
         case MODE.RESET_PASSWORD:
           response = await wixClient.auth.sendPasswordResetEmail(
@@ -204,6 +196,7 @@ const LoginPage = () => {
           {isLoading ? "Loading..." : buttonTitle}
         </button>
         {error && <div className="text-red-600">{error}</div>}
+
         {mode === MODE.LOGIN && (
           <div
             className="text-sm underline cursor-pointer"

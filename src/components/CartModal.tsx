@@ -43,7 +43,7 @@ const CartModal = () => {
       ) : (
         // LIST
         <>
-          <h2 className="text-lg">Shopping Car</h2>
+          <h2 className="text-lg">Shopping Cart</h2>
           <div className="flex flex-col gap-8">
             {/* ITEM */}
             {cart.lineItems.map((item) => (

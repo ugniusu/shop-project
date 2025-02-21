@@ -34,16 +34,16 @@ const NavIcons = () => {
   // AUTH WITH WIX-MANAGED AUTH
   // const wixClient = useWixClient();
 
-  // const login = async () => {
-  //   const loginRequestData = wixClient.auth.generateOAuthData(
-  //     "http://localhost:3000"
-  //   );
-  //   console.log(loginRequestData);
+  const login = async () => {
+    const loginRequestData = wixClient.auth.generateOAuthData(
+      "http://localhost:3000"
+    );
+    console.log(loginRequestData);
 
-  //   localStorage.setItem("oAuthRedirectData", JSON.stringify(loginRequestData));
-  //   const { authUrl } = await wixClient.auth.getAuthUrl(loginRequestData);
-  //   window.location.href = authUrl;
-  // };
+    localStorage.setItem("oAuthRedirectData", JSON.stringify(loginRequestData));
+    const { authUrl } = await wixClient.auth.getAuthUrl(loginRequestData);
+    window.location.href = authUrl;
+  };
 
   console.log(pathName);
 
@@ -70,8 +70,8 @@ const NavIcons = () => {
         width={22}
         height={22}
         className="cursor-pointer"
-        onClick={handleProfile}
-        // onClick={login}
+        // onClick={handleProfile}
+        onClick={login}
       />
       {isProfileOpen && (
         <div className="absolute p-4 rounded-md bg-white top-12 left-0 text-sm shadow-lg z-20">

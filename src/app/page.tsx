@@ -1,9 +1,9 @@
 // "use client";
 
 import { Suspense, useContext, useEffect } from "react";
-import CategoryList from "./components/CategoryList";
-import ProductList from "./components/ProductList";
-import Slider from "./components/Slider";
+import CategoryList from "../components/CategoryList";
+import ProductList from "../components/ProductList";
+import Slider from "../components/Slider";
 import { WixClientContext } from "@/context/wixContext";
 import { useWixClient } from "@/hooks/useWixClient";
 import { wixClientServer } from "@/lib/wixClientServer";

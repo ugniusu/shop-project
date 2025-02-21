@@ -1,5 +1,5 @@
-import Filter from "@/app/components/Filter";
-import ProductList from "@/app/components/ProductList";
+import Filter from "@/components/Filter";
+import ProductList from "@/components/ProductList";
 // import Skeleton from "@/app/components/Skeleton";
 import { wixClientServer } from "@/lib/wixClientServer";
 import Image from "next/image";

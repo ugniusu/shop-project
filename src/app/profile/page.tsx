@@ -3,15 +3,19 @@ import React from "react";
 import { members } from "@wix/members";
 import Link from "next/link";
 import { format } from "timeago.js";
-import UpdateButton from "../components/UpdateButton";
+import UpdateButton from "../../components/UpdateButton";
 import { updateUser } from "@/lib/actions";
 
 const ProfilePage = async () => {
   const wixClient = await wixClientServer();
 
-  const user = await wixClient.members.getCurrentMember({
-    fieldsets: [members.Set.FULL],
-  });
+  // const user = await wixClient.members.getCurrentMember({
+  //   fieldsets: [members.Set.FULL],
+  // });
+
+  const user = await wixClient.members.getCurrentMember();
+
+  console.log(user);
 
   if (!user.member?.contactId) {
     return <div>Not Logged in!</div>;
